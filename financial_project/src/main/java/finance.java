@@ -3,11 +3,31 @@ import java.util.Scanner;
 public class finance {
     static Scanner value = new Scanner(System.in);
     public static void main(String[] args) {
-        futureValue();
-        System.out.println();
-        mortgageCalculator();
-        System.out.println();
-        presentValue();
+//        futureValue();
+//        System.out.println();
+//        mortgageCalculator();
+//        System.out.println();
+//        presentValue();
+        System.out.println("What calculator do you want use");
+        System.out.println("Enter 1 for mortgage calculator");
+        System.out.println("Enter 2 for future value");
+        System.out.println("Enter 3 for present value");
+        int want = value.nextInt();
+
+        switch (want) {
+            case 1:
+                mortgageCalculator();
+                break;
+            case 2:
+                futureValue();
+                break;
+            case 3:
+                presentValue();
+                break;
+            default:
+                System.out.println("please choice the right option");
+        }
+
 
     }
 
