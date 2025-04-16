@@ -3,31 +3,33 @@ import java.util.Scanner;
 public class finance {
     static Scanner value = new Scanner(System.in);
     public static void main(String[] args) {
-//        futureValue();
-//        System.out.println();
-//        mortgageCalculator();
-//        System.out.println();
-//        presentValue();
-        System.out.println("What calculator do you want use");
-        System.out.println("Enter 1 for mortgage calculator");
-        System.out.println("Enter 2 for future value");
-        System.out.println("Enter 3 for present value");
-        int want = value.nextInt();
+          // first method of doing it
+          //  futureValue();
+          //  System.out.println();
+          //  mortgageCalculator();
+          //  System.out.println();
+          //  presentValue();
 
-        switch (want) {
-            case 1:
-                mortgageCalculator();
-                break;
-            case 2:
-                futureValue();
-                break;
-            case 3:
-                presentValue();
-                break;
-            default:
-                System.out.println("please choice the right option");
-        }
+          // better way of doing it
+            System.out.println("What calculator do you want use");
+            System.out.println("Enter 1 for mortgage calculator");
+            System.out.println("Enter 2 for future value");
+            System.out.println("Enter 3 for present value");
+            int want = value.nextInt();
 
+            switch (want) {
+                case 1:
+                    mortgageCalculator();
+                    break;
+                case 2:
+                    futureValue();
+                    break;
+                case 3:
+                    presentValue();
+                    break;
+                default:
+                    System.out.println("please choice the right option");
+            }
 
     }
 
@@ -39,7 +41,7 @@ public class finance {
         System.out.printf("here is your mortgage value: %.2f", calculation(loan(),rate(),length()));
     }
     public static void presentValue(){
-        System.out.printf("here is your present value: %.2f",annuity(monthly(),interest(),years()));
+        System.out.printf("here is your present value: %.2f",annuity(monthly(),interest(),numYears()));
     }
 
 
@@ -95,7 +97,7 @@ public class finance {
         System.out.println("Enter interest rate in %:");
         return value.nextDouble();
     }
-    public static double yearss(){
+    public static double numYears(){
         System.out.println("Enter the number of years:");
         return value.nextDouble();
     }
