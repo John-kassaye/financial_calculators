@@ -38,7 +38,15 @@ public class finance {
         System.out.printf("here is your future value: %.2f", futureValues(deposit(), interestRate(), years()));
     }
     public static void mortgageCalculator(){
-        System.out.printf("here is your mortgage value: %.2f", calculation(loan(),rate(),length()));
+        double loanAmount = loan();
+        double interestRate = rate();
+        int Years = length();
+
+        double monthlyPayment = calculation(loanAmount, interestRate, Years);
+        double totalInterest = calculateTotalInterestPaid(monthlyPayment, Years, loanAmount);
+
+        System.out.printf("here is your mortgage value: %.2f\n", monthlyPayment);
+        System.out.printf("here is your total interest paid: %.2f\n", totalInterest);
     }
     public static void presentValue(){
         System.out.printf("here is your present value: %.2f",annuity(monthly(),interest(),numYears()));
@@ -85,8 +93,15 @@ public class finance {
         double i = (rate/100) / 12;
         double y = years * 12;
         double power = Math.pow(1 + i, y);
-        return amount * (i * power)/(power - 1);
+        double payment = amount * (i * power)/(power - 1);
+        return payment;
     }
+    public static double calculateTotalInterestPaid(double calculation, int length, double amount) {
+        double totalInterstRate = 0;
+        totalInterstRate = calculation * length * 12 - amount;
+        return totalInterstRate;
+    }
+
 
     // present
     public static double monthly(){
